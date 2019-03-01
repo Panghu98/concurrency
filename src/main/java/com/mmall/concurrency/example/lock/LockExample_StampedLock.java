@@ -2,7 +2,7 @@ package com.mmall.concurrency.example.lock;
 
 import java.util.concurrent.locks.StampedLock;
 
-public class LockExample4 {
+public class LockExample_StampedLock {
 
     class Point {
         private double x, y;

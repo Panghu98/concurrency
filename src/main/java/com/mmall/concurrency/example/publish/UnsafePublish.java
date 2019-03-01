@@ -8,7 +8,8 @@ import java.util.Arrays;
 /**
  * @author panghu
  * @Title: UnsafePublish
- * @Description: TODO
+ * @Description: 线程的不安全发布
+ *
  * @date 19-2-17 上午11:36
  */
 @Slf4j

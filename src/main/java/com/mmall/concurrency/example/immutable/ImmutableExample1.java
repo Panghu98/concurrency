@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @author panghu
  * @Title: ImmutableExample1
- * @Description: TODO
+ * @Description: 不可变对象
  * @date 19-2-17 下午7:52
  */
 @Slf4j

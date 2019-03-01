@@ -1,6 +1,5 @@
 package com.mmall.concurrency.example.concurrent;
 
-import com.mmall.concurrency.annoations.NotThreadSafe;
 import com.mmall.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
