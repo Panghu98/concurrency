@@ -43,3 +43,4 @@ HashMap的底层结构
 * 数组的长度必须为2的N次方
 * 在HashMap的容量不够时，会重新创建一个新的HashMap，容量为原来的两倍，保证原来的寻址依旧可用，并且会将原来的数据插入到新的HashMap当中，这个过程调用的方法为reHash()。，这个方法并不保证线程安全，在多线程调用时可能出现死循环。而单线程情况下的reHash是没有问题的。
 ![HashMap2](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/HashMap2.png)
+##关于消息队列待学习中
