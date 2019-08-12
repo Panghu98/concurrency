@@ -37,9 +37,9 @@
 * spring bean（bean的声明周期，作用域）：singleton(默认的scope，和springIOC的声明周期是一样的，只有在第一次注入才会被创建),prototype（每次注入的时候都会创建一个新的对象）
   无状态对象：不会因为多线程破坏对象状态（比如说DTO，VO，Service，Controller等）
 ## HashMap和ConcurrentHashMap
-![](https://s2.ax1x.com/2019/08/12/mSe7rD.png)
+![HashMap结构](https://s2.ax1x.com/2019/08/12/mSe7rD.png)
 HashMap的底层结构
 * 由数组和链表组成
 * 数组的长度必须为2的N次方
 * 在HashMap的容量不够时，会重新创建一个新的HashMap，容量为原来的两倍，保证原来的寻址依旧可用，并且会将原来的数据插入到新的HashMap当中，这个过程调用的方法为reHash()。，这个方法并不保证线程安全，在多线程调用时可能出现死循环。而单线程情况下的reHash是没有问题的。
-![](https://s2.ax1x.com/2019/08/12/mSeTKO.png)
+![HashMap扩容](https://s2.ax1x.com/2019/08/12/mSeTKO.png)
