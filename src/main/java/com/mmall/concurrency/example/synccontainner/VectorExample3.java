@@ -18,10 +18,10 @@ public class VectorExample3 {
     /**
      * java.util.ConcurrentModificationException
      **/
-    private static void test1(Vector<Integer> v1){
-        for (Integer i:v1
-             ) {
-            if (i.equals(3)){
+    private static void test1(Vector<Integer> v1) {
+        for (Integer i : v1
+        ) {
+            if (i.equals(3)) {
                 v1.remove(i);
             }
         }
@@ -29,25 +29,27 @@ public class VectorExample3 {
 
     /**
      * java.util.ConcurrentModificationException
+     *
      * @param v1
      */
-    private static void test2(Vector<Integer> v1){
+    private static void test2(Vector<Integer> v1) {
         Iterator<Integer> integerIterator = v1.iterator();
-        while (integerIterator.hasNext()){
+        while (integerIterator.hasNext()) {
             Integer i = integerIterator.next();
-            if (i.equals(3)){
+            if (i.equals(3)) {
                 v1.remove(i);
             }
         }
     }
 
     /**
-     *没有抛出异常
+     * 没有抛出异常
+     *
      * @param v1
      */
-    private static void test3(Vector<Integer> v1){
+    private static void test3(Vector<Integer> v1) {
         for (int i = 0; i < v1.size(); i++) {
-            if (v1.get(i).equals(3)){
+            if (v1.get(i).equals(3)) {
                 v1.remove(i);
             }
         }

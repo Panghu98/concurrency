@@ -27,9 +27,9 @@ public class HttpFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         /*       request.getSession().getAttribute("attribute"); */
-        log.info("do filter,{},{}",Thread.currentThread().getId(),request.getServletPath());
+        log.info("do filter,{},{}", Thread.currentThread().getId(), request.getServletPath());
         RequestHolder.add(Thread.currentThread().getId());
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override

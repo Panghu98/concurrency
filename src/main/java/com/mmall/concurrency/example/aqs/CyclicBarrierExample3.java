@@ -14,7 +14,7 @@ import java.util.concurrent.*;
 @Slf4j
 public class CyclicBarrierExample3 {
 
-    private static CyclicBarrier cyclicBarrier = new CyclicBarrier(5,()->{
+    private static CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> {
         log.info("callback is running");
     });
 
@@ -25,27 +25,27 @@ public class CyclicBarrierExample3 {
         for (int i = 0; i < 10; i++) {
             final int threadNum = i;
             Thread.sleep(1000);
-            executorService.execute(()->{
-                try{
+            executorService.execute(() -> {
+                try {
                     race(threadNum);
-                }catch (Exception e){
-                    log.error("exception : {}",e);
+                } catch (Exception e) {
+                    log.error("exception : {}", e);
                 }
             });
         }
         executorService.shutdown();
     }
 
-    private static void race(int threadNum) throws Exception{
+    private static void race(int threadNum) throws Exception {
         Thread.sleep(1000);
-        log.info("{} is ready",threadNum);
+        log.info("{} is ready", threadNum);
         try {
             //当执行await方法的线程达到指定的数目的时候就可以执行下面的方法了
             cyclicBarrier.await();
-        }catch (BrokenBarrierException e){
-            log.error("{}",e);
+        } catch (BrokenBarrierException e) {
+            log.error("{}", e);
         }
-        log.info("{} continue",threadNum);
+        log.info("{} continue", threadNum);
     }
 
 }

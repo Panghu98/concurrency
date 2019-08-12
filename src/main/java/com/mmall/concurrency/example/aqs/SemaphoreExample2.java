@@ -18,7 +18,7 @@ public class SemaphoreExample2 {
 
     private static int threadCount = 20;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -27,15 +27,15 @@ public class SemaphoreExample2 {
 
         for (int i = 0; i < threadCount; i++) {
             final int threadNum = i;
-            executorService.execute(()->{
-                try{
+            executorService.execute(() -> {
+                try {
                     //获得多个许可
                     semaphore.acquire(3);
                     test(threadNum);
                     //释放多个许可
                     semaphore.release(3);
-                }catch (Exception e){
-                    log.error("Exception:{}",e);
+                } catch (Exception e) {
+                    log.error("Exception:{}", e);
                 }
             });
         }
@@ -44,7 +44,7 @@ public class SemaphoreExample2 {
     }
 
     private static void test(int threadNum) throws InterruptedException {
-        log.info("{}",threadNum);
+        log.info("{}", threadNum);
         Thread.sleep(1000);
     }
 

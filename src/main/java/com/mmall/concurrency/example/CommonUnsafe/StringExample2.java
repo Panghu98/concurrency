@@ -11,6 +11,7 @@ import java.util.concurrent.Semaphore;
 /**
  * StringBuilder
  * StringBuffer基本上所有的方法都是添加了synchronized关键字的(除了构造方法)
+ *
  * @author panghu
  */
 @Slf4j
@@ -29,7 +30,7 @@ public class StringExample2 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();

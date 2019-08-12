@@ -29,7 +29,7 @@ public class FixedThreadPoolExample {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    log.info("task : {}",index);
+                    log.info("task : {}", index);
                 }
             });
         }

@@ -30,10 +30,11 @@ public class SingletonExample1 {
 
     /**
      * 静态的工厂方法
+     *
      * @return
      */
-    public static SingletonExample1 getInstance(){
-        if (instance == null){
+    public static SingletonExample1 getInstance() {
+        if (instance == null) {
             instance = new SingletonExample1();
         }
         return instance;

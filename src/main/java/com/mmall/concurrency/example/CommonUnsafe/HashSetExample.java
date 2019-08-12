@@ -34,7 +34,7 @@ public class HashSetExample {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             final int count = i;
             executorService.execute(() -> {
                 try {
@@ -50,7 +50,7 @@ public class HashSetExample {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("size:{}",set.size());
+        log.info("size:{}", set.size());
     }
 
     private static void update(int i) {

@@ -13,18 +13,23 @@ import java.util.concurrent.Executors;
  */
 @Slf4j
 public class SynchronizedExample2 {
-    /**修饰类*/
-    public void test1(int j){
-        synchronized (SynchronizedExample2.class){
+    /**
+     * 修饰类
+     */
+    public void test1(int j) {
+        synchronized (SynchronizedExample2.class) {
             for (int i = 0; i < j; i++) {
-                log.info("test1 - {}",i);
+                log.info("test1 - {}", i);
             }
         }
     }
-    /**修饰一个静态方法*/
-    public static synchronized void test2(int j){
+
+    /**
+     * 修饰一个静态方法
+     */
+    public static synchronized void test2(int j) {
         for (int i = 0; i < j; i++) {
-            log.info("test2 - {}",i);
+            log.info("test2 - {}", i);
         }
     }
 
@@ -33,10 +38,10 @@ public class SynchronizedExample2 {
         SynchronizedExample2 example2 = new SynchronizedExample2();
         ExecutorService executorService = Executors.newCachedThreadPool();
         /**通过线程池和两次调用来模拟同步代码块的调用情况*/
-        executorService.execute(()->{
+        executorService.execute(() -> {
             test2(10);
         });
-        executorService.execute(()->{
+        executorService.execute(() -> {
             test2(5);
         });
     }

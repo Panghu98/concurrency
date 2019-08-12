@@ -18,7 +18,7 @@ import java.util.concurrent.*;
 @Slf4j
 public class FutureExample {
 
-    static class MyCallable implements Callable<String>{
+    static class MyCallable implements Callable<String> {
 
         @Override
         public String call() throws Exception {
@@ -34,7 +34,7 @@ public class FutureExample {
         log.info("do something in main");
         Thread.sleep(1000);
         String result = future.get();
-        log.info("result : {}",result);
+        log.info("result : {}", result);
     }
 
 }

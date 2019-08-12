@@ -1,6 +1,7 @@
 package com.mmall.concurrency.example.CommonUnsafe;
 
 import com.mmall.concurrency.annoations.NotThreadSafe;
+import com.mmall.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -21,7 +22,7 @@ import java.util.concurrent.Semaphore;
  * @date 19-2-20 上午11:16
  */
 @Slf4j
-@NotThreadSafe
+@ThreadSafe
 public class DateFormatExample3 {
 
     // 请求总数
@@ -37,7 +38,7 @@ public class DateFormatExample3 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             final int count = i;
             executorService.execute(() -> {
                 try {
@@ -55,8 +56,8 @@ public class DateFormatExample3 {
         executorService.shutdown();
     }
 
-    private static void update(int i) {
-        log.info("{},{}",i,DateTime.parse("20180208",dateTimeFormatter).toDate());
+    private static void  update(int i) {
+        log.info("{},{}", i, DateTime.parse("20180208", dateTimeFormatter).toDate());
     }
 
 }

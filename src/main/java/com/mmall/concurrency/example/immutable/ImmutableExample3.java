@@ -16,13 +16,13 @@ import java.util.List;
 @ThreadSafe
 public class ImmutableExample3 {
 
-    private final static List<Integer> list = ImmutableList.of(1,2,3);
+    private final static List<Integer> list = ImmutableList.of(1, 2, 3);
 
     private final static ImmutableSet set = ImmutableSet.copyOf(list);
 
-    private final static ImmutableMap<Integer,Integer> map = ImmutableMap.of(1,2,3,4);
+    private final static ImmutableMap<Integer, Integer> map = ImmutableMap.of(1, 2, 3, 4);
 
-    private final static ImmutableMap<Integer,Integer> map2 = ImmutableMap.<Integer,Integer>builder().put(1,2).put(3,4).build();
+    private final static ImmutableMap<Integer, Integer> map2 = ImmutableMap.<Integer, Integer>builder().put(1, 2).put(3, 4).build();
 
     public static void main(String[] args) {
         System.out.println(map2.get(3));

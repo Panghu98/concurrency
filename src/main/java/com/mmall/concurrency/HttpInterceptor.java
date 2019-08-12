@@ -16,9 +16,10 @@ import javax.servlet.http.HttpServletResponse;
  * @date 19-2-19 下午9:55
  */
 @Slf4j
-public class HttpInterceptor  extends HandlerInterceptorAdapter {
+public class HttpInterceptor extends HandlerInterceptorAdapter {
     /**
      * 接口处理之前
+     *
      * @param request
      * @param response
      * @param handler
@@ -33,6 +34,7 @@ public class HttpInterceptor  extends HandlerInterceptorAdapter {
 
     /**
      * 接口处理之后
+     *
      * @param request
      * @param response
      * @param handler

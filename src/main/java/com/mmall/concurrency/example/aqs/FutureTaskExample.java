@@ -29,7 +29,7 @@ public class FutureTaskExample {
         log.info("do something in main");
         Thread.sleep(1000);
         String result = futureTask.get();
-        log.info("result : {}",result);
+        log.info("result : {}", result);
     }
 
 }

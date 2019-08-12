@@ -18,28 +18,34 @@ import java.util.concurrent.Semaphore;
 @NotThreadSafe
 public class CountExample4 {
 
-    /**请求总数*/
+    /**
+     * 请求总数
+     */
     public static int clientTotal = 5000;
 
-    /**同事并发执行的线程数*/
+    /**
+     * 同事并发执行的线程数
+     */
     public static int threadTotal = 200;
 
-    /**计数值*/
+    /**
+     * 计数值
+     */
     public static volatile int count = 0;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0;i < clientTotal; i++){
-            executorService.execute(()->{
+        for (int i = 0; i < clientTotal; i++) {
+            executorService.execute(() -> {
                 try {
                     semaphore.acquire();
                     add();
                     System.out.println();
                     semaphore.release();
-                }catch (Exception e){
-                    log.error("exception",e);
+                } catch (Exception e) {
+                    log.error("exception", e);
                 }
                 countDownLatch.countDown();
             });
@@ -47,10 +53,10 @@ public class CountExample4 {
         countDownLatch.await();
         executorService.shutdown();
         System.out.println();
-        log.info("count:{}",count);
+        log.info("count:{}", count);
     }
 
-    private static void add(){
+    private static void add() {
         count++;
         /*
          * 1.从主存中获取最新的count值

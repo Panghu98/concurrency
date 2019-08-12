@@ -18,7 +18,7 @@ public class SingletonExample5 {
     /**
      * 私有构造函数
      */
-    private SingletonExample5(){
+    private SingletonExample5() {
 
     }
 
@@ -43,14 +43,15 @@ public class SingletonExample5 {
     /**
      * 静态工厂方法
      * 使用双重检测机制
+     *
      * @return
      */
-    public static SingletonExample5 getInstance(){
-        if (instance == null){
+    public static SingletonExample5 getInstance() {
+        if (instance == null) {
             //同步锁  B-2  B线程可能在没有完成instance对象初始化之前就被返回了  也就是A中的instance没有初始化
-            synchronized (SingletonExample5.class){
+            synchronized (SingletonExample5.class) {
                 //A -3
-                if (instance == null){
+                if (instance == null) {
                     instance = new SingletonExample5();
                 }
             }

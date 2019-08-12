@@ -19,7 +19,7 @@ public class CutDownLatchExample2 {
 
     private static int threadCount = 200;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -28,12 +28,12 @@ public class CutDownLatchExample2 {
         for (int i = 0; i < threadCount; i++) {
             final int threadNum = i;
             //Thread.sleep(1);  这一步是没有作用的  不太懂
-            executorService.execute(()->{
-                try{
+            executorService.execute(() -> {
+                try {
                     test(threadNum);
-                }catch (Exception e){
-                    log.error("Exception:{}",e);
-                }finally {
+                } catch (Exception e) {
+                    log.error("Exception:{}", e);
+                } finally {
                     //根据需求放在不同的地方，进行减一操作
                     //为了能够执行，一般是放在finally代码块中
                     countDownLatch.countDown();
@@ -48,7 +48,7 @@ public class CutDownLatchExample2 {
 
     private static void test(int threadNum) throws InterruptedException {
         Thread.sleep(100);
-        log.info("{}",threadNum);
+        log.info("{}", threadNum);
     }
 
 }

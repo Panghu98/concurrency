@@ -17,15 +17,15 @@ import com.mmall.concurrency.annoations.ThreadSafe;
 @Recommend
 public class SingletonExample7 {
 
-    private SingletonExample7(){
+    private SingletonExample7() {
 
     }
 
-    public static SingletonExample7 getInstance(){
+    public static SingletonExample7 getInstance() {
         return Singleton.INSTANCE.getSingleton();
     }
 
-    private enum Singleton{
+    private enum Singleton {
         /***/
         INSTANCE;
 
@@ -34,11 +34,11 @@ public class SingletonExample7 {
         /**
          * JVM保证该方法绝对只会被调用一次
          */
-        Singleton(){
+        Singleton() {
             singleton = new SingletonExample7();
         }
 
-        public SingletonExample7 getSingleton(){
+        public SingletonExample7 getSingleton() {
             return singleton;
         }
 

@@ -15,6 +15,6 @@ public class Test1 {
 //        Object num2 = "Hello";
 //        System.out.println(num1.hashCode());
 //        System.out.println(num2.hashCode());
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
     }
 }

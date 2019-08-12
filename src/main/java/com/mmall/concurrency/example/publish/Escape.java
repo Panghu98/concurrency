@@ -21,10 +21,10 @@ public class Escape {
         new InnerClass();
     }
 
-    private class InnerClass{
+    private class InnerClass {
 
         public InnerClass() {
-            log.info("{}" ,Escape.this.thisCanBeEscape);
+            log.info("{}", Escape.this.thisCanBeEscape);
         }
 
     }

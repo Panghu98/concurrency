@@ -14,11 +14,11 @@ import java.util.concurrent.Executors;
  * @date 19-2-26 上午9:42
  */
 @Slf4j
-public class CutDownLatchExample1{
+public class CutDownLatchExample1 {
 
     private static int threadCount = 200;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -26,12 +26,12 @@ public class CutDownLatchExample1{
 
         for (int i = 0; i < threadCount; i++) {
             final int threadNum = i;
-            executorService.execute(()->{
-                try{
+            executorService.execute(() -> {
+                try {
                     test(threadNum);
-                }catch (Exception e){
-                    log.error("Exception:{}",e);
-                }finally {
+                } catch (Exception e) {
+                    log.error("Exception:{}", e);
+                } finally {
                     //根据需求放在不同的地方
                     countDownLatch.countDown();
                 }
@@ -44,7 +44,7 @@ public class CutDownLatchExample1{
 
     private static void test(int threadNum) throws InterruptedException {
         Thread.sleep(100);
-        log.info("{}",threadNum);
+        log.info("{}", threadNum);
         Thread.sleep(100);
     }
 

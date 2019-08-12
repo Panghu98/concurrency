@@ -28,13 +28,13 @@ public class HashMapExample {
     // 同时并发执行的线程数
     public static int threadTotal = 200;
 
-    private static Map<Integer,Integer> map = new HashMap<>();
+    private static Map<Integer, Integer> map = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             final int count = i;
             executorService.execute(() -> {
                 try {
@@ -50,11 +50,11 @@ public class HashMapExample {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("size:{}",map.size());
+        log.info("size:{}", map.size());
     }
 
-    private static void update(int i) {
-        map.put(i,1);
+    private  static void update(int i) {
+        map.put(i, 1);
     }
 
 }

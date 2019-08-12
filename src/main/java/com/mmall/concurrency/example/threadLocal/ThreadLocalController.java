@@ -17,7 +17,7 @@ public class ThreadLocalController {
 
     @RequestMapping("/test")
     @ResponseBody
-    public Long test(){
+    public Long test() {
         return RequestHolder.getId();
     }
 

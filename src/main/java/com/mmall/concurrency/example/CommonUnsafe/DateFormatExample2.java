@@ -32,7 +32,7 @@ public class DateFormatExample2 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
@@ -50,11 +50,11 @@ public class DateFormatExample2 {
     }
 
     private static void update() {
-         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         try {
             simpleDateFormat.parse("20180208");
         } catch (ParseException e) {
-            log.error("parse exception",e);
+            log.error("parse exception", e);
         }
     }
 

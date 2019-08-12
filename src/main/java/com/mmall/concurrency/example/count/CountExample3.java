@@ -21,38 +21,44 @@ import java.util.concurrent.atomic.AtomicInteger;
 @NotThreadSafe
 public class CountExample3 {
 
-    /**请求总数*/
+    /**
+     * 请求总数
+     */
     public static int clientTotal = 5000;
 
-    /**同事并发执行的线程数*/
+    /**
+     * 同事并发执行的线程数
+     */
     public static int threadTotal = 200;
 
-    /**计数值*/
+    /**
+     * 计数值
+     */
     public static int count = 0;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0;i < clientTotal; i++){
-            executorService.execute(()->{
+        for (int i = 0; i < clientTotal; i++) {
+            executorService.execute(() -> {
                 try {
                     semaphore.acquire();
                     add();
                     semaphore.release();
-                }catch (Exception e){
+                } catch (Exception e) {
                     System.out.println();
-                    log.error("exception",e);
+                    log.error("exception", e);
                 }
                 countDownLatch.countDown();
             });
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count:{}",count);
+        log.info("count:{}", count);
     }
 
-    private static synchronized void add(){
+    private static synchronized void add() {
         count++;
     }
 }

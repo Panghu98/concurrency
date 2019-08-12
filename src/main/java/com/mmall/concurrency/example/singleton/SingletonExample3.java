@@ -33,10 +33,11 @@ public class SingletonExample3 {
 
     /**
      * 静态的工厂方法
+     *
      * @return
      */
-    public static synchronized SingletonExample3 getInstance(){
-        if (instance == null){
+    public static synchronized SingletonExample3 getInstance() {
+        if (instance == null) {
             instance = new SingletonExample3();
         }
         return instance;

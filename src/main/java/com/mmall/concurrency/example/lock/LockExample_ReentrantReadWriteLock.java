@@ -21,7 +21,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @ThreadSafe
 public class LockExample_ReentrantReadWriteLock {
 
-    private final Map<String,Data> map = new TreeMap<>();
+    private final Map<String, Data> map = new TreeMap<>();
 
     private final static ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
@@ -29,36 +29,36 @@ public class LockExample_ReentrantReadWriteLock {
 
     private final Lock writeLock = lock.writeLock();
 
-    public Data get(String key){
+    public Data get(String key) {
         readLock.lock();
-        try{
+        try {
             return map.get(key);
-        }finally {
+        } finally {
             readLock.unlock();
         }
     }
 
-    public Set<String> getAllKeys(){
+    public Set<String> getAllKeys() {
         readLock.lock();
-        try{
+        try {
             return map.keySet();
-        }finally {
+        } finally {
             readLock.unlock();
         }
     }
 
 
-    public Data put(String key,Data value){
+    public Data put(String key, Data value) {
         writeLock.lock();
-        try{
-            return map.put(key,value);
-        }finally {
+        try {
+            return map.put(key, value);
+        } finally {
             writeLock.unlock();
         }
     }
 
 
-    class Data{
+    class Data {
 
     }
 

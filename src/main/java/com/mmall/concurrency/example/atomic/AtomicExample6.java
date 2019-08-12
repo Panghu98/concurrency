@@ -20,39 +20,43 @@ public class AtomicExample6 {
 
     private static AtomicBoolean isHappened = new AtomicBoolean();
 
-    /**请求总数*/
+    /**
+     * 请求总数
+     */
     private static int clientTotal = 5000;
 
-    /**同时并发的执行数目*/
+    /**
+     * 同时并发的执行数目
+     */
     public static int threadTotal = 200;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal; i++){
-            executorService.execute(()->{
+        for (int i = 0; i < clientTotal; i++) {
+            executorService.execute(() -> {
                 try {
                     semaphore.acquire();
                     test();
                     semaphore.release();
-                }catch (Exception e){
-                    log.info("exception",e);
+                } catch (Exception e) {
+                    log.info("exception", e);
                 }
                 countDownLatch.countDown();
             });
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("idHappened:{}",isHappened.get());
+        log.info("idHappened:{}", isHappened.get());
     }
 
     /**
      * 这样可以保证代码只执行一次，原子性
      */
-    private static void test(){
-        if (isHappened.compareAndSet(false,true)){
+    private static void test() {
+        if (isHappened.compareAndSet(false, true)) {
             log.info("execute");
         }
     }

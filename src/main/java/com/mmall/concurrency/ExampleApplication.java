@@ -12,16 +12,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author panghu
  */
 @SpringBootApplication
-public class ExampleApplication  implements WebMvcConfigurer {
+public class ExampleApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(ExampleApplication.class, args);
     }
 
     @Bean
-    public FilterRegistrationBean httpFilter(){
+    public FilterRegistrationBean httpFilter() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-        registrationBean.setFilter(new  HttpFilter());
+        registrationBean.setFilter(new HttpFilter());
         registrationBean.addUrlPatterns("/threadLocal/*");
         return registrationBean;
     }

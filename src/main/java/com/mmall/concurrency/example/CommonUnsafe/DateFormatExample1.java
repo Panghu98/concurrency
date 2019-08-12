@@ -34,7 +34,7 @@ public class DateFormatExample1 {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
-        for (int i = 0; i < clientTotal ; i++) {
+        for (int i = 0; i < clientTotal; i++) {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
@@ -55,7 +55,7 @@ public class DateFormatExample1 {
         try {
             simpleDateFormat.parse("20180208");
         } catch (ParseException e) {
-            log.error("parse exception",e);
+            log.error("parse exception", e);
         }
     }
 

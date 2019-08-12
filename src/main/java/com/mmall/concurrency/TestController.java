@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author panghu
  * @Title: TestController
- * @ProjectName cuncurrency_demo
+ * @ProjectName concurrency_demo
  * @Description: TODO
  * @date 19-2-15 下午4:00
  */
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @RequestMapping("/test")
-    public String test(){
+    public String test() {
         return "test success";
     }
 

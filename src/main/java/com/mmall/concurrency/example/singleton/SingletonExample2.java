@@ -10,7 +10,7 @@ package com.mmall.concurrency.example.singleton;
 import com.mmall.concurrency.annoations.ThreadSafe;
 
 /**
- *饿汉 模式
+ * 饿汉 模式
  * 单例实例在类装载的时候进行创建
  * 会造成资源的浪费
  */
@@ -22,7 +22,7 @@ public class SingletonExample2 {
 
     private static SingletonExample2 instance = new SingletonExample2();
 
-    public static SingletonExample2 getInstance(){
+    public static SingletonExample2 getInstance() {
         return instance;
     }
 }
