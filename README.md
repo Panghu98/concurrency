@@ -1,5 +1,6 @@
 # 多线程以及高并发的处理方案
 ## 总体的学习路线
+![](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/HashMap.png)
 ![并发编程学习路线](https://s2.ax1x.com/2019/08/12/mSeIxK.png)
 ## 关于多线程和高并发
 * 并发：同时拥有两个或者是多个线程，如果程序在单核处理器上运行，多个线程将交替地进入或者换出内存，
