@@ -1,7 +1,6 @@
 # 多线程以及高并发的处理方案
 ## 总体的学习路线
-![](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/HashMap.png)
-![并发编程学习路线](https://s2.ax1x.com/2019/08/12/mSeIxK.png)
+![并发编程学习路线](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565609437334&di=9e437cc242e8154117d6719124c8cbee&imgtype=0&src=http%3A%2F%2Fwww.sinaimg.cn%2FIT%2Fcr%2F2015%2F0331%2F725124517.jpg)
 ## 关于多线程和高并发
 * 并发：同时拥有两个或者是多个线程，如果程序在单核处理器上运行，多个线程将交替地进入或者换出内存，
 这些线程是同时“存在”的，每个线程都处于执行过程中的某个状态，如果运行在多核处理器上。
