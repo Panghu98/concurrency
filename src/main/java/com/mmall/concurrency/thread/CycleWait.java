@@ -1,5 +1,9 @@
 package com.mmall.concurrency.thread;
 
+import org.joda.time.DateTime;
+
+import java.sql.Date;
+
 public class CycleWait implements Runnable{
 
     private String value;
@@ -20,6 +24,7 @@ public class CycleWait implements Runnable{
         CycleWait cycleWait = new CycleWait();
         Thread t = new Thread(cycleWait);
         t.start();
+        System.out.println("Value : " + cycleWait.value);
         //主线程的等待方
         while (cycleWait.value == null){
             Thread.sleep(100);

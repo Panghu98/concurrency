@@ -35,6 +35,9 @@ public class WaitSleepDemo {
                     System.out.println("Thread B get lock");
                     Thread.sleep(20);
                     lock.notifyAll();
+                    //唤醒锁池中的所有线程,注意,是针对于对象,而不是线程
+                    Thread.yield();
+                    Thread.sleep(2000);
                     System.out.println("Thread B is done ---");
                 }
             }catch (InterruptedException e ){
@@ -42,7 +45,4 @@ public class WaitSleepDemo {
             }
         }).start();
     }
-
-
-
 }

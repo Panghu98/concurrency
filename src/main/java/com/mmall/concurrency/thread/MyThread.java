@@ -8,13 +8,9 @@ public class MyThread extends Thread {
         this.name = name;
     }
 
-    public MyThread(Runnable target) {
-        super(target);
-    }
-
     @Override
     public void run() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("Thread start : "+ this.name + " i = "+i);
         }
     }
