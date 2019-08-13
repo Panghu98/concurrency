@@ -1,15 +1,11 @@
-package com.mmall.concurrency.test;
+package com.mmall.concurrency.thread;
 
-public class MyThread extends Thread {
+public class MyRunnable implements Runnable{
 
     private String name;
 
-    public MyThread(String name) {
+    public MyRunnable(String name) {
         this.name = name;
-    }
-
-    public MyThread(Runnable target) {
-        super(target);
     }
 
     @Override

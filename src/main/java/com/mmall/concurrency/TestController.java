@@ -17,7 +17,7 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test() {
-        return "test success";
+        return "thread success";
     }
 
 }

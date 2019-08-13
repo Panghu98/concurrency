@@ -1,4 +1,4 @@
-package com.mmall.concurrency.test;
+package com.mmall.concurrency.thread;
 
 public class RunnableDemo {
 
