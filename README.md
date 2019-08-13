@@ -1,6 +1,6 @@
 # 多线程以及高并发的处理方案
 ## 总体的学习路线
-![并发编程学习路线](/home/panghu/IdeaProjects/concurrency/src/main/resources/pictures/并发编程学习路线.png)
+![并发编程学习路线](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.png)
 ## 关于多线程和高并发
 * 并发：同时拥有两个或者是多个线程，如果程序在单核处理器上运行，多个线程将交替地进入或者换出内存，
 这些线程是同时“存在”的，每个线程都处于执行过程中的某个状态，如果运行在多核处理器上。
@@ -37,9 +37,9 @@
 * spring bean（bean的声明周期，作用域）：singleton(默认的scope，和springIOC的声明周期是一样的，只有在第一次注入才会被创建),prototype（每次注入的时候都会创建一个新的对象）
   无状态对象：不会因为多线程破坏对象状态（比如说DTO，VO，Service，Controller等）
 ## HashMap和ConcurrentHashMap
-![](/home/panghu/IdeaProjects/concurrency/src/main/resources/pictures/HashMap.png)
+![HashMap结构](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/HashMap.png)
 HashMap的底层结构
 * 由数组和链表组成
 * 数组的长度必须为2的N次方
 * 在HashMap的容量不够时，会重新创建一个新的HashMap，容量为原来的两倍，保证原来的寻址依旧可用，并且会将原来的数据插入到新的HashMap当中，这个过程调用的方法为reHash()。，这个方法并不保证线程安全，在多线程调用时可能出现死循环。而单线程情况下的reHash是没有问题的。
-![](/home/panghu/IdeaProjects/concurrency/src/main/resources/pictures/HashMap2.png)
+![HashMap扩容](https://github.com/Panghu98/concurrency/blob/master/src/main/resources/pictures/HashMap2.png)
