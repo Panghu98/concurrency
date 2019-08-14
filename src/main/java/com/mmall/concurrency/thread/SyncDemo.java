@@ -6,14 +6,14 @@ public class SyncDemo {
         Thread A_thread1 = new Thread(syncThread, "A_thread1");
         Thread A_thread2 = new Thread(syncThread, "A_thread2");
         //B1,B2,C1,C2共用同一个对象
-//        Thread B_thread1 = new Thread(syncThread, "B_thread1");
-//        Thread B_thread2 = new Thread(syncThread, "B_thread2");
-//        Thread C_thread1 = new Thread(syncThread, "C_thread1");
-//        Thread C_thread2 = new Thread(syncThread, "C_thread2");
-        Thread D_thread1 = new Thread(syncThread, "D_thread1");
-        Thread D_thread2 = new Thread(syncThread, "D_thread2");
-        Thread E_thread1 = new Thread(syncThread, "E_thread1");
-        Thread E_thread2 = new Thread(syncThread, "E_thread2");
+//        Thread B_thread1 = new Thread(new SyncThread(), "B_thread1");
+//        Thread B_thread2 = new Thread(new SyncThread(), "B_thread2");
+//        Thread C_thread1 = new Thread(new SyncThread(), "C_thread1");
+//        Thread C_thread2 = new Thread(new SyncThread(), "C_thread2");
+        Thread D_thread1 = new Thread(new SyncThread(), "D_thread1");
+        Thread D_thread2 = new Thread(new SyncThread(), "D_thread2");
+        Thread E_thread1 = new Thread(new SyncThread(), "E_thread1");
+        Thread E_thread2 = new Thread(new SyncThread(), "E_thread2");
         A_thread1.start();
         A_thread2.start();
 //        B_thread1.start();

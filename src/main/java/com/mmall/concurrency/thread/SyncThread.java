@@ -3,10 +3,16 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+/**
+ * 不同的线程name属性,执行不同的run()方法
+ * @author panghu
+ */
 public class SyncThread implements Runnable {
     @Override
     public void run() {
         String threadName = Thread.currentThread().getName();
+        //根据前缀判断执行的run()方法
         if (threadName.startsWith("A")) {
             async();
         } else if (threadName.startsWith("B")) {
@@ -21,7 +27,7 @@ public class SyncThread implements Runnable {
     }
 
     /**
-     * 异步方法
+     * 异步方法,不需要获取锁
      */
     private void async(){
         try{
@@ -75,6 +81,9 @@ public class SyncThread implements Runnable {
         }
     }
 
+    /**
+     * 同步代码块(synchronized(类.class))
+     */
     private void syncClassBlock1() {
         System.out.println(Thread.currentThread().getName() + "_SyncClassBlock1: "
                 + new SimpleDateFormat("HH:mm:ss").format(new Date()));
@@ -91,6 +100,9 @@ public class SyncThread implements Runnable {
         }
     }
 
+    /**
+     * 同步静态方法(synchronized static method)
+     */
     private synchronized static void syncClassMethod1() {
         System.out.println(Thread.currentThread().getName() + "_SyncClassMethod1: "
                 + new SimpleDateFormat("HH:mm:ss").format(new Date()));
