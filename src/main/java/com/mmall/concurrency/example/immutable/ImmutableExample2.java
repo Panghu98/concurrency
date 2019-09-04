@@ -23,7 +23,8 @@ public class ImmutableExample2 {
         map.put(1, 2);
         map.put(3, 4);
         map.put(5, 6);
-        map = Collections.unmodifiableMap(map);
+        //如果注释掉下面这一句,那么操作就是允许的
+//        map = Collections.unmodifiableMap(map);
     }
 
     public static void main(String[] args) {

@@ -12,7 +12,7 @@ public class VolatileFeaturesExample {
      * @param l
      */
     public synchronized void set(long l){
-        v1 = 1;
+        v1 = l;
     }
 
     public void getAndIncrement(){
