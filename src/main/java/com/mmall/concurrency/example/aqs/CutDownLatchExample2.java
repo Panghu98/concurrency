@@ -41,8 +41,8 @@ public class CutDownLatchExample2 {
             });
         }
         //await()保证线程执行完，需要等计数器减到0才能执行。也可以指定等待的时间
-        countDownLatch.await(10, TimeUnit.MILLISECONDS);
-        log.info("finish");
+        countDownLatch.await(1000, TimeUnit.NANOSECONDS);
+        log.error("finish");
         executorService.shutdown();
     }
 

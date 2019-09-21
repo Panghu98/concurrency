@@ -33,6 +33,7 @@ public class CyclicBarrierExample1 {
                 }
             });
         }
+        //关闭线程池,最好是在finally代码块中执行
         executorService.shutdown();
     }
 
