@@ -39,7 +39,7 @@ public class CutDownLatchExample1 {
         }
         //await()保证线程执行完
         countDownLatch.await();
-        log.info("finish");
+        log.error("===============finish=======================");
     }
 
     private static void test(int threadNum) throws InterruptedException {

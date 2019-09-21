@@ -38,7 +38,7 @@ public class CyclicBarrierExample2 {
         Thread.sleep(1000);
         log.info("{} is ready", threadNum);
         try {
-            //当执行await方法的线程达到指定的数目的时候就可以执行下面的方法了
+            //当执行await方法的线程达到指定的数目的时候就可以执行下面的方法了,超时的话就继续自己的事情.
             cyclicBarrier.await(2000, TimeUnit.MILLISECONDS);
         } catch (BrokenBarrierException | TimeoutException e) {
             log.error("{}", e);
