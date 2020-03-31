@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DeadLock implements Runnable {
     private int flag = 1;
-    //静态对象是类的所有对象共享的
+    //静态对象是类的所有对象共享的，因为是类变量嘛
     private final static Object o1 = new Object(), o2 = new Object();
 
     @Override

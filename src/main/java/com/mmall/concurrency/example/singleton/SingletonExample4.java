@@ -25,7 +25,7 @@ public class SingletonExample4 {
     /**
      * 单例对象
      */
-    public static SingletonExample4 instance = null;
+    private static SingletonExample4 instance = null;
 
     /**
      * 1. memory = allocate()  分配对象的内存空间

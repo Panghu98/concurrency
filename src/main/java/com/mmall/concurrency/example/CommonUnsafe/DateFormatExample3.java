@@ -19,6 +19,9 @@ import java.util.concurrent.Semaphore;
  * @author panghu
  * @Title: DateFormatExample1
  * @Description: TODO
+ *
+ *
+ *  使用了单例模式，保证了线程调用的安全性
  * @date 19-2-20 上午11:16
  */
 @Slf4j

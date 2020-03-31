@@ -4,7 +4,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockDemo implements Runnable{
 
-    private static ReentrantLock lock = new ReentrantLock(false );
+    // 如果是true，轮流得到锁
+    private static ReentrantLock lock = new ReentrantLock(true );
 
     @Override
     public void run() {

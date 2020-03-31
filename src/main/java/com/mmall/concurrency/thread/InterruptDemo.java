@@ -18,6 +18,12 @@ public class InterruptDemo {
                     //在调用阻塞方法时正确处理InterruptedException异常。（例如，catch异常后就结束线程。）
                     System.out.println(Thread.currentThread().getName() + " (" + Thread.currentThread().getState()
                                         + ") catch InterruptedException.");
+
+                    // 如果执行下面这段代码的话，线程还是执行状态
+//                    System.err.println("执行死循环=====");
+//                    while (true) {
+//                        int i = 1;
+//                    }
                 }
             }
         };
@@ -29,7 +35,7 @@ public class InterruptDemo {
         System.out.println(t1.getName() +" ("+t1.getState()+") is started.");
 
         // 主线程休眠300ms，然后主线程给t1发“中断”指令。
-        Thread.sleep(300);
+        Thread.sleep(600);
         t1.interrupt();
         System.out.println(t1.getName() +" ("+t1.getState()+") is interrupted.");
 

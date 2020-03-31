@@ -26,7 +26,7 @@ public class SingletonExample5 {
      * 单例对象
      * 通过volatile关键字来限制指令重排
      */
-    public volatile static SingletonExample5 instance = null;
+    private volatile static SingletonExample5 instance = null;
 
     //使用volatile和双重检测机制
     /**
