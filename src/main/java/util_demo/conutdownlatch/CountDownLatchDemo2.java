@@ -35,8 +35,8 @@ public class CountDownLatchDemo2 {
             service.execute(runnable);
         }
         // 模拟裁判员检查工作
-        Thread.sleep(5000);
-        countDownLatch.countDown();
+        Thread.sleep(1000);
         System.err.println("打枪了，冲冲冲....");
+        countDownLatch.countDown();
     }
 }
