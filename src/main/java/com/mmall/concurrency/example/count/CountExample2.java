@@ -33,31 +33,28 @@ public class CountExample2 {
     /**
      * 计数值
      */
-    public static AtomicInteger count = new AtomicInteger(0);
+    private static final AtomicInteger atomicCount = new AtomicInteger(0);
 
-    public static void main(String[] args) throws Exception {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        final Semaphore semaphore = new Semaphore(threadTotal);
-        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+    private static Integer count = 0;
+
+
+
+    public static void main(String[] args) throws InterruptedException {
+        Runnable runnable = () -> {
+            // 原子类++操作
+            atomicCount.incrementAndGet();
+            count++;
+        };
+
+        ExecutorService executorService = Executors.newFixedThreadPool(threadTotal);
         for (int i = 0; i < clientTotal; i++) {
-            executorService.execute(() -> {
-                try {
-                    semaphore.acquire();
-                    add();
-                    semaphore.release();
-                } catch (Exception e) {
-                    log.info("清除重复");
-                    log.error("exception", e);
-                }
-                countDownLatch.countDown();
-            });
+            executorService.execute(runnable);
         }
-        countDownLatch.await();
-        executorService.shutdown();
-        log.info("count:{}", count.get());
-    }
 
-    private static void add() {
-        count.incrementAndGet();
+        // 使得主线程在累加完之后查看累加结果，也可以用CountDownLatch
+        Thread.sleep(1000);
+        System.out.println("原子类多线程累加的结果 " + atomicCount.get());
+        System.out.println("普通变量多线程累加的结果 " + count);
+
     }
 }

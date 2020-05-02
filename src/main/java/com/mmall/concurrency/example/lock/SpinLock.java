@@ -24,7 +24,7 @@ public class SpinLock {
         sign.compareAndSet(current,null);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         SpinLock lock = new SpinLock();
         Runnable runnable = new Runnable(){
 
@@ -47,13 +47,16 @@ public class SpinLock {
         Thread thread2 = new Thread(runnable);
         thread1.start();
         thread2.start();
+        thread1.join();
+        thread2.join();
     }
-
-    // 有时候的结果是这样的，很奇怪
-    //Thread-0开始尝试获取自旋锁
-    //Thread-0获取到了自旋锁。。。
-    //Thread-1开始尝试获取自旋锁
-    //Thread-1获取到了自旋锁。。。
-    //Thread-0释放锁
-    //Thread-1释放锁
 }
+
+
+// 有时候的结果是这样的，很奇怪
+//Thread-0开始尝试获取自旋锁
+//Thread-0获取到了自旋锁。。。
+//Thread-1开始尝试获取自旋锁
+//Thread-1获取到了自旋锁。。。
+//Thread-0释放锁
+//Thread-1释放锁
